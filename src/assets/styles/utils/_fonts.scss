@@ -1,0 +1,34 @@
+@mixin font-face($font-name, $path, $weight: normal, $style: normal) {
+    @font-face {
+        font-family: quote($font-name);
+        src: url(#{$path}.woff) format('woff'),
+            url(#{$path}.woff2) format('woff2'),
+            url(#{$path}.ttf) format('truetype');
+        font-weight: $weight;
+        font-style: $style;
+    }
+}
+
+// @include font-face(
+//     'LibreBaskerville',
+//     '../fonts/LibreBaskerville-Regular',
+//     400,
+//     'normal'
+// );
+
+// @include font-face(
+//     'LibreBaskerville',
+//     '../fonts/LibreBaskerville-Bold',
+//     700,
+//     'normal'
+// );
+
+// @mixin LibreBaskerville {
+//     font-family: 'LibreBaskerville', 'serif';
+//     font-weight: 400;
+// }
+
+// @mixin LibreBaskerville-bold {
+//     font-family: 'LibreBaskerville', 'serif';
+//     font-weight: 700;
+// }

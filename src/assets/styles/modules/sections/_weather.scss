@@ -1,0 +1,10 @@
+.weather {
+    &-container {
+        width: 100%;
+    }
+    &-img {
+        width: 600px;
+        height: 600px;
+        fill: red;
+    }
+}
