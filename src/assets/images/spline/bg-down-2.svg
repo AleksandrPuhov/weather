@@ -1,0 +1,7 @@
+<svg viewBox="0 0 1024 500"
+    xmlns="http://www.w3.org/2000/svg">
+    <path d="m0,500 l0,-250 c400,-100 524,60 1024,30 l0,300 z"></path>
+    <path d="m70,250 v-30 l-15,2 l20,-60 l20,60 l-15,-2 v30 z"></path>
+    <path d="m120,250 v-45 l-18,3 l25,-75 l25,75 l-18,-3 v45 z"></path>
+    <path d="m160,250 v-35 l-12,2 l16,-47 l16,47 l-12,-2 v35 z"></path>
+</svg>

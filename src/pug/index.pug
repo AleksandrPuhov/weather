@@ -4,4 +4,51 @@ block variables
 	-var title = 'Weather'
 
 block content
-	include ./modules/sections/weather
+	.body-wrapper
+		header.header
+			ul.header-bg
+				li.header-bg-up
+					include ../assets/images/spline/bg-up.svg  
+				li.header-bg-down-1
+					include ../assets/images/spline/bg-down-1.svg  
+				li.header-bg-down-2
+					include ../assets/images/spline/bg-down-2.svg  
+				li.header-bg-down-3
+					include ../assets/images/spline/bg-down-3.svg  
+				li.header-bg-down-4
+					include ../assets/images/spline/bg-down-4.svg  
+			.wrapper
+				.header-inner
+					nav.header-nav
+						.header-nav-burger
+							+icon("menu","header-nav-burger-icon")
+						.header-nav-search
+							+icon("loupe","header-nav-search-icon")
+					.header-info
+						.header-info-text
+							h2.header-info-text-town New Delhi
+							h4.header-info-text-date Monday April 18
+							h3.header-info-text-weather Sunny
+						img.header-info-img(src='./assets/images/weather.svg' alt='Weather image')
+					h1.header-degrees 12 
+						span.header-degrees__measure &#176C
+		main    
+			section.weather
+				.wrapper 
+					.weather-info Info Detail
+		footer.footer
+			.wrapper
+				nav.footer-nav
+					ul.footer-nav-list
+						li.footer-nav-list__item
+							a.footer-nav-ref
+								+icon("day","footer-nav-ref__icon")
+								span.footer-nav-ref__text Today 
+						li.footer-nav-list__item
+							a.footer-nav-ref
+								+icon("week","footer-nav-ref__icon")
+								span.footer-nav-ref__text Weekly 
+						li.footer-nav-list__item
+							a.footer-nav-ref
+								+icon("settings","footer-nav-ref__icon")
+								span.footer-nav-ref__text Settings 

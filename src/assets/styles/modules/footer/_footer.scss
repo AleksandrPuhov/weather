@@ -1,2 +1,33 @@
 .footer {
+    background-color: $bgColorFooter;
+    &-nav {
+        padding: 10px 0;
+
+        &-list {
+            display: flex;
+            margin: 0 -10px;
+            &__item {
+                padding: 0 10px;
+                flex-basis: 33.333%;
+            }
+        }
+        &-ref {
+            display: block;
+            color: $textColor;
+            &__icon {
+                width: 40px;
+                height: 30px;
+                fill: $textColor;
+                margin: 0 auto;
+                display: block;
+            }
+            &__text {
+                display: block;
+                text-align: center;
+                font-size: 10px;
+                @include fontSemiBold;
+                margin: 5px 0 0;
+            }
+        }
+    }
 }

@@ -31,7 +31,10 @@ const serverModule = () => {
         'change',
         server.reload
     );
+
     gulp.watch('src/pug/**/*.pug', gulp.series(pug));
+    gulp.watch('src/assets/images/spline/**.svg', gulp.series(pug));
+
     gulp.watch('dist/*.html').on('change', server.reload);
 };
 
