@@ -1,18 +1,42 @@
 const gulp = require('gulp');
-const babel = require('gulp-babel');
-const uglify = require('gulp-uglify');
 const argv = require('yargs').argv;
-const gulpif = require('gulp-if');
+const webpack = require('webpack-stream');
 
-const scriptsModule = () =>
-    gulp
-        .src('src/assets/js/**/*.js')
+const scriptsModule = () => {
+    const mode = argv.prod ? 'production' : 'development';
+    const devTool = argv.prod ? false : 'source-map';
+
+    return gulp
+        .src('src/assets/js/main.js')
         .pipe(
-            babel({
-                presets: ['@babel/env'],
+            webpack({
+                mode: mode,
+                devtool: devTool,
+                output: {
+                    filename: 'main.js',
+                },
+                module: {
+                    rules: [
+                        {
+                            test: /\.js$/,
+                            exclude: /(node_modules|bower_components)/,
+                            use: [
+                                {
+                                    loader: 'babel-loader',
+                                    options: {
+                                        presets: ['@babel/preset-env'],
+                                        plugins: [
+                                            '@babel/plugin-transform-runtime',
+                                            '@babel/plugin-proposal-class-properties',
+                                        ],
+                                    },
+                                },
+                            ],
+                        },
+                    ],
+                },
             })
         )
-        .pipe(gulpif(argv.prod, uglify()))
         .pipe(gulp.dest('dist/assets/js/'));
-
+};
 module.exports = scriptsModule;

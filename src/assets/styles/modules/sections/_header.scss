@@ -1,5 +1,5 @@
 .header {
-    height: 70%;
+    height: 75%;
     position: relative;
     z-index: 0;
     background-color: #313e5c;
@@ -111,11 +111,12 @@
             &-weather {
                 @include fontSemiBold;
                 font-size: 14px;
+                text-transform: capitalize;
             }
         }
         &-img {
-            width: 110px;
-            height: 90px;
+            width: 90px;
+            height: 60px;
             margin-right: 20px;
         }
     }
@@ -124,12 +125,9 @@
         justify-self: flex-end;
         font-size: 80px;
         margin: 0 0 0 20px;
+        display: flex;
         &__measure {
-            display: block;
             font-size: 34px;
-            position: absolute;
-            top: 0;
-            left: 85px;
         }
     }
 }

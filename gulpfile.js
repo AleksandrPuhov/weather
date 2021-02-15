@@ -8,7 +8,6 @@ const favicon = require('./gulp/tasks/favicon');
 const imageMinify = require('./gulp/tasks/imageMinify');
 const pug = require('./gulp/tasks/pug');
 const spriteSVG = require('./gulp/tasks/spriteSVG');
-const libsJS = require('./gulp/tasks/libsJS');
 
 const dev = gulp.parallel(
     pug,
@@ -18,7 +17,6 @@ const dev = gulp.parallel(
     spriteSVG,
     fonts,
     favicon
-    //    libsJS
 );
 
 exports.default = gulp.series(clean, dev, serverWatch);
