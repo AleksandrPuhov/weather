@@ -32,7 +32,9 @@ export class TownWeather {
         const weatherTextEl = townWeatherEl.querySelector(
             '.header-info-text-weather'
         );
-        const weatherIconEl = townWeatherEl.querySelector('.header-info-img');
+        const weatherImgEl = townWeatherEl.querySelector(
+            '.header-info-img-icon use'
+        );
         const weatherTempEl = townWeatherEl.querySelector(
             '.header-degrees__num'
         );
@@ -43,7 +45,10 @@ export class TownWeather {
         weatherDateEl.textContent = this.weatherDate;
         weatherTextEl.textContent = this.weatherText;
 
-        //weatherIconEl.textContent = this.weatherIcon;
+        weatherImgEl.setAttribute(
+            'xlink:href',
+            `assets/images/sprite/symbol/sprite.svg#${this.weatherIcon}`
+        );
 
         weatherTempEl.textContent = this.weatherTemp;
         weatherMeasureEl.textContent = '\xB0C';

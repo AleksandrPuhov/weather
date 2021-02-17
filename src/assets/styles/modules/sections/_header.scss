@@ -115,9 +115,14 @@
             }
         }
         &-img {
-            width: 90px;
-            height: 60px;
+            width: 100px;
+            height: 70px;
             margin-right: 20px;
+            &-icon {
+                fill: $textColorHeader;
+                width: 100%;
+                height: 100%;
+            }
         }
     }
     &-degrees {

@@ -30,13 +30,42 @@ block content
 								h2.header-info-text-town
 								h4.header-info-text-date
 								h3.header-info-text-weather
-							img.header-info-img(src='./assets/images/mist.svg' alt='Weather image')
+							.header-info-img
+								+iconsWeather('header-info-img-icon','')
 						h1.header-degrees 
 							span.header-degrees__num 
 							span.header-degrees__measure
 			section.temperature
 				.weather-wrapper 
-					.temperature-info Info Detail
+					ul.temperature-today
+						li.temperature-today__item
+							figure.temperature-today__card 
+								.temperature-today__img
+									+iconsWeather('temperature-today__img-thermometer','thermometer-25')
+								figcaption.temperature-today__text
+									p.temperature-today__text-caption Feels like
+									p.temperature-today__text-info.temperature-today__degrees 22 C
+						li.temperature-today__item
+							figure.temperature-today__card 
+								.temperature-today__img
+									+icon("drops","temperature-today__img-icon")
+								figcaption.temperature-today__text
+									p.temperature-today__text-caption Humidity
+									p.temperature-today__text-info.temperature-today__humidity 55 %
+						li.temperature-today__item
+							figure.temperature-today__card 
+								.temperature-today__img
+									+icon("wind","temperature-today__img-icon")
+								figcaption.temperature-today__text
+									p.temperature-today__text-caption Wind
+									p.temperature-today__text-info.temperature-today__wind 16 km/h
+						li.temperature-today__item
+							figure.temperature-today__card 
+								.temperature-today__img
+									+icon("barometer","temperature-today__img-icon")
+								figcaption.temperature-today__text
+									p.temperature-today__text-caption Pressure
+									p.temperature-today__text-info.temperature-today__pressure 1018 hPa
 		footer.footer
 			.weather-wrapper
 				nav.footer-nav

@@ -11,12 +11,12 @@ export class Weather {
         this.render();
     }
 
-    async getWeather(townName) {
+    async getWeatherToday(cityName) {
         //        event.preventDefault();
         //        let dataToday = null;
         try {
             // modal.show();
-            const dataToday = await getWeatherFromAddress(townName);
+            const dataToday = await getWeatherFromAddress(cityName);
             //            console.log(dataToday);
             return dataToday;
         } catch (error) {
@@ -24,6 +24,9 @@ export class Weather {
         } finally {
             //        modal.hide();
         }
+    }
+
+    render() {
         // const data = getWeatherFromAddress(
         //     myTownList.towns[myTownList.selectedTown].name
         // );
@@ -32,20 +35,21 @@ export class Weather {
         //     myTownList.towns[myTownList.selectedTown].coords.lat,
         //     myTownList.towns[myTownList.selectedTown].coords.lon
         // );
-    }
 
-    render() {
-        this.getWeather('Vladimir').then((data) => {
-            this.myTownWeather.changeTownInfo(
-                data.name,
-                timeConverterToday(data.dt + data.timezone),
-                data.weather[0].description,
-                iconName(data.weather[0].id, data.weather[0].icon),
-                kelvinToCelsius(data.main.temp).toFixed()
-            );
-            this.myTownWeather.render();
+        this.getWeatherToday('Vladimir')
+            .then((data) => {
+                this.myTownWeather.changeTownInfo(
+                    data.name,
+                    timeConverterToday(data.dt),
+                    data.weather[0].description,
+                    iconName(data.weather[0].id, data.weather[0].icon),
+                    kelvinToCelsius(data.main.temp).toFixed()
+                );
 
-            //            console.log(iconName(800, '01n'));
-        });
+                // this.myTownWeather.render();
+            })
+            .then(() => {
+                this.myTownWeather.render();
+            });
     }
 }
