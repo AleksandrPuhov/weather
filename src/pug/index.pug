@@ -6,7 +6,7 @@ block variables
 block content
 	.weather
 		.weather-inner
-			header.header
+			header.header#header
 				ul.header-bg
 					li.header-bg-up
 						include ../assets/images/spline/bg-up.svg  
@@ -35,51 +35,94 @@ block content
 						h1.header-degrees 
 							span.header-degrees__num 
 							span.header-degrees__measure
-			section.temperature
+			section.temperature#temperature
 				.weather-wrapper 
-					ul.temperature-today
+					ul.temperature-today#temperature-today
 						li.temperature-today__item
 							figure.temperature-today__card 
 								.temperature-today__img
 									+iconsWeather('temperature-today__img-thermometer','thermometer-25')
 								figcaption.temperature-today__text
 									p.temperature-today__text-caption Feels like
-									p.temperature-today__text-info.temperature-today__degrees 22 C
+									p.temperature-today__text-info.temperature-today__degrees
 						li.temperature-today__item
 							figure.temperature-today__card 
 								.temperature-today__img
 									+icon("drops","temperature-today__img-icon")
 								figcaption.temperature-today__text
 									p.temperature-today__text-caption Humidity
-									p.temperature-today__text-info.temperature-today__humidity 55 %
+									p.temperature-today__text-info.temperature-today__humidity
 						li.temperature-today__item
 							figure.temperature-today__card 
 								.temperature-today__img
 									+icon("wind","temperature-today__img-icon")
 								figcaption.temperature-today__text
 									p.temperature-today__text-caption Wind
-									p.temperature-today__text-info.temperature-today__wind 16 km/h
+									p.temperature-today__text-info.temperature-today__wind
 						li.temperature-today__item
 							figure.temperature-today__card 
 								.temperature-today__img
 									+icon("barometer","temperature-today__img-icon")
 								figcaption.temperature-today__text
 									p.temperature-today__text-caption Pressure
-									p.temperature-today__text-info.temperature-today__pressure 1018 hPa
+									p.temperature-today__text-info.temperature-today__pressure
+					ul.temperature-week#temperature-week
+						li.temperature-week__item
+							.temperature-week__card 
+								.temperature-week__img
+									+iconsWeather('temperature-week__img-icon','drizzle')
+								span.temperature-week__day Fri
+								span.temperature-week__degrees 22/26C
+								span.temperature-week__text Sunda dasdf sdf dadaasdad asdaddad
+						li.temperature-week__item
+							.temperature-week__card 
+								.temperature-week__img
+									+iconsWeather('temperature-week__img-icon','drizzle')
+								span.temperature-week__day Fri
+								span.temperature-week__degrees 22/26C
+								span.temperature-week__text Sunda dasdf sdf dadaasdad asdaddad
+						//- li.temperature-week__item
+						//- 	.temperature-week__card 
+						//- 		.temperature-week__img
+						//- 			+iconsWeather('temperature-week__img-icon','drizzle')
+						//- 		span.temperature-week__day Fri
+						//- 		span.temperature-week__degrees 22/26C
+						//- 		span.temperature-week__text Sunda dasdf sdf dadaasdad asdaddad
+						//- li.temperature-week__item
+						//- 	.temperature-week__card 
+						//- 		.temperature-week__img
+						//- 			+iconsWeather('temperature-week__img-icon','drizzle')
+						//- 		span.temperature-week__day Fri
+						//- 		span.temperature-week__degrees 22/26C
+						//- 		span.temperature-week__text Sunda dasdf sdf dadaasdad asdaddad
+						//- li.temperature-week__item
+						//- 	.temperature-week__card 
+						//- 		.temperature-week__img
+						//- 			+iconsWeather('temperature-week__img-icon','drizzle')
+						//- 		span.temperature-week__day Fri
+						//- 		span.temperature-week__degrees 22/26C
+						//- 		span.temperature-week__text Sunda dasdf sdf dadaasdad asdaddad
+						//- li.temperature-week__item
+						//- 	.temperature-week__card 
+						//- 		.temperature-week__img
+						//- 			+iconsWeather('temperature-week__img-icon','drizzle')
+						//- 		span.temperature-week__day Fri
+						//- 		span.temperature-week__degrees 22/26C
+						//- 		span.temperature-week__text Sunda dasdf sdf dadaasdad asdaddad
 		footer.footer
 			.weather-wrapper
 				nav.footer-nav
 					ul.footer-nav-list
 						li.footer-nav-list__item
-							a.footer-nav-ref
-								+icon("day","footer-nav-ref__icon")
-								span.footer-nav-ref__text Today 
+							button.footer-nav-btn#today-btn
+								+icon("day","footer-nav-btn__icon")
+								span.footer-nav-btn__text Today 
 						li.footer-nav-list__item
-							a.footer-nav-ref
-								+icon("week","footer-nav-ref__icon")
-								span.footer-nav-ref__text Weekly 
+							button.footer-nav-btn#week-btn
+								+icon("week","footer-nav-btn__icon")
+								span.footer-nav-btn__text Weekly 
 						li.footer-nav-list__item
-							a.footer-nav-ref
-								+icon("settings","footer-nav-ref__icon")
-								span.footer-nav-ref__text Settings 
+							button.footer-nav-btn
+								+icon("settings","footer-nav-btn__icon")
+								span.footer-nav-btn__text Settings 
 

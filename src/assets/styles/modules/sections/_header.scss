@@ -3,6 +3,12 @@
     position: relative;
     z-index: 0;
     background-color: #313e5c;
+    transition: $transitionTime;
+
+    &--show-week {
+        height: 270px;
+    }
+
     &-bg {
         position: absolute;
         z-index: 1;
@@ -11,6 +17,7 @@
         height: 100%;
         width: 100%;
         background-color: #fbb274;
+
         &-up {
             position: absolute;
             z-index: 2;
@@ -67,12 +74,20 @@
             }
         }
     }
+    &--show-week &-bg {
+        display: none;
+    }
 
     &-inner {
         display: flex;
         flex-direction: column;
         height: 100%;
         padding: 15px 0 30px;
+        transition: $transitionTime;
+    }
+
+    &--show-week &-inner {
+        padding: 15px 0 15px;
     }
 
     &-nav,
@@ -99,12 +114,17 @@
         display: flex;
         justify-content: space-between;
         flex-grow: 1;
+        transition: $transitionTime;
         &-text {
+            transition: $transitionTime;
+
             &-town {
                 @include fontLight;
                 font-size: 24px;
             }
             &-date {
+                transition: $transitionTime;
+
                 font-size: 12px;
                 margin: 5px 0 25px;
             }
@@ -125,6 +145,14 @@
             }
         }
     }
+
+    &--show-week &-info {
+        margin: 20px 0 0;
+        &-text-date {
+            margin: 5px 0 15px;
+        }
+    }
+
     &-degrees {
         color: $textColorHeader;
         justify-self: flex-end;

@@ -1,4 +1,4 @@
-export const iconName = (id, icon) => {
+export const iconName = (id, icon, notNight = false) => {
     if (200 <= id && id <= 202) {
         return 'thunder-rain';
     }
@@ -29,23 +29,16 @@ export const iconName = (id, icon) => {
     if (id === 781) {
         return 'tornado';
     }
-    if (id === 800 && icon === '01d') {
-        return 'sun';
+    if (id === 800) {
+        return icon === '01n' && !notNight ? 'moon' : 'sun';
     }
-    if (id === 800 && icon === '01n') {
-        return 'moon';
+    if (id === 801) {
+        return icon === '02n' && !notNight
+            ? 'cloud-small-moon'
+            : 'cloud-small-sun';
     }
-    if (id === 801 && icon === '02d') {
-        return 'cloud-small-sun';
-    }
-    if (id === 801 && icon === '02n') {
-        return 'cloud-small-moon';
-    }
-    if (id === 802 && icon === '02d') {
-        return 'cloud-big-sun';
-    }
-    if (id === 802 && icon === '02n') {
-        return 'cloud-big-moon';
+    if (id === 802) {
+        return icon === '02n' && !notNight ? 'cloud-big-moon' : 'cloud-big-sun';
     }
     if (803 <= id && id <= 804) {
         return 'cloud';

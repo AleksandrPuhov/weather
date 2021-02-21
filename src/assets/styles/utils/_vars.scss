@@ -5,7 +5,10 @@ $textColorHeader: #ffffff;
 
 $textColor: #595656;
 
+$bgColorTemperature: #ffffff;
+
 $bgColorFooter: #e7e7e8;
+$bgBtnActiveColor: #537dbf;
 
 // $colorMain: #00dbd0;
 // $colorMainSecond: #f1fefe;
@@ -15,10 +18,10 @@ $bgColorFooter: #e7e7e8;
 //     $alpha: 0.25,
 // );
 
-// $textColorMainAlpha: rgba(
-//     $color: $textColorMain,
-//     $alpha: 0.8,
-// );
+$textColorMainAlpha: rgba(
+    $color: $textColor,
+    $alpha: 0.2,
+);
 
 // $textColorSecond: #ffffff;
 // $sectionBgColor: #fbfefe;

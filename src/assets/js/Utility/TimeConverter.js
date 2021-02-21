@@ -27,7 +27,16 @@ export const timeConverterToday = (UNIX_timestamp) => {
     const month = MONTHS[time.getMonth()];
     const date = time.getDate();
     const day = DAYS[time.getDay()].long;
-
     const todayData = `${day} ${month} ${date}`;
     return todayData;
+};
+
+export const timeConverterDay = (UNIX_timestamp) => {
+    const time = new Date(UNIX_timestamp * 1000);
+    return DAYS[time.getDay()].short;
+};
+
+export const timeConverterHours = (UNIX_timestamp) => {
+    const time = new Date(UNIX_timestamp * 1000);
+    return time.getHours();
 };
