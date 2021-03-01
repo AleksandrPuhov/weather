@@ -31,12 +31,12 @@ export const timeConverterToday = (UNIX_timestamp) => {
     return todayData;
 };
 
-export const timeConverterDay = (UNIX_timestamp) => {
+export const timeConverterDayName = (UNIX_timestamp) => {
     const time = new Date(UNIX_timestamp * 1000);
     return DAYS[time.getDay()].short;
 };
 
-export const timeConverterHours = (UNIX_timestamp) => {
+export const timeConverterDay = (UNIX_timestamp) => {
     const time = new Date(UNIX_timestamp * 1000);
-    return time.getHours();
+    return time.getDate();
 };

@@ -1,7 +1,32 @@
 export class TownWeather {
     constructor() {}
 
-    renderHeader(newName, newDate, newText, newIcon, newTemp) {
+    changeColor(color) {
+        const headerBgEl = document.getElementById('header-bg');
+        const upEl = headerBgEl.querySelector('.header-bg-up svg path');
+        const down1 = headerBgEl.querySelectorAll('.header-bg-down-1 svg path');
+        const down2 = headerBgEl.querySelectorAll('.header-bg-down-2 svg path');
+        const down3 = headerBgEl.querySelectorAll('.header-bg-down-3 svg path');
+        const down4 = headerBgEl.querySelectorAll('.header-bg-down-4 svg path');
+
+        headerBgEl.style.backgroundColor = color.bgc;
+        upEl.setAttribute('fill', color.up);
+
+        down1.forEach((path) => {
+            path.setAttribute('fill', color.down1);
+        });
+        down2.forEach((path) => {
+            path.setAttribute('fill', color.down2);
+        });
+        down3.forEach((path) => {
+            path.setAttribute('fill', color.down3);
+        });
+        down4.forEach((path) => {
+            path.setAttribute('fill', color.down4);
+        });
+    }
+
+    renderHeader(newName, newDate, newText, newIcon, newTemp, color) {
         const townWeatherEl = document.getElementById('town-weather');
         const townNameEl = townWeatherEl.querySelector(
             '.header-info-text-town'
@@ -32,6 +57,8 @@ export class TownWeather {
 
         weatherTempEl.textContent = newTemp;
         weatherMeasureEl.textContent = '\xB0C';
+
+        this.changeColor(color);
     }
 
     thermometerIcon(degrees) {
@@ -80,40 +107,64 @@ export class TownWeather {
         pressureEl.textContent = `${newPressure} hPa`;
     }
 
-    renderWeek() {
-        const todayWeatherEl = document.getElementById('temperature-week');
+    createListEl(dayItem) {
+        const useEl = document.createElementNS(
+            'http://www.w3.org/2000/svg',
+            'use'
+        );
+        useEl.setAttributeNS(
+            'http://www.w3.org/1999/xlink',
+            'xlink:href',
+            `assets/images/sprite/symbol/sprite.svg#${dayItem.icon}`
+        );
+        const svgEl = document.createElementNS(
+            'http://www.w3.org/2000/svg',
+            'svg'
+        );
+        svgEl.classList.add('svg-sprite-icon');
+        svgEl.classList.add('temperature-week__img-icon');
+        svgEl.append(useEl);
 
-        // li.temperature-week__item
-        // .temperature-week__card
-        //     .temperature-week__img
-        //         +iconsWeather('temperature-week__img-icon','drizzle')
-        //     span.temperature-week__day Fri
-        //     span.temperature-week__degrees 22/26C
-        //     span.temperature-week__text Sunda dasdf sdf dadaasdad asdaddad
+        const imgEl = document.createElement('div');
+        imgEl.className = 'temperature-week__img';
+        imgEl.append(svgEl);
 
-        // const imgThermometerEl = todayWeatherEl.querySelector(
-        //     '.temperature-today__img-thermometer use'
-        // );
-        // const feelTemperatureEl = todayWeatherEl.querySelector(
-        //     '.temperature-today__degrees'
-        // );
-        // const humidityEl = todayWeatherEl.querySelector(
-        //     '.temperature-today__humidity'
-        // );
-        // const windEl = todayWeatherEl.querySelector('.temperature-today__wind');
-        // const pressureEl = todayWeatherEl.querySelector(
-        //     '.temperature-today__pressure'
-        // );
+        const dayEl = document.createElement('span');
+        dayEl.className = 'temperature-week__day';
+        dayEl.textContent = `${dayItem.day}`;
 
-        // imgThermometerEl.setAttribute(
-        //     'xlink:href',
-        //     `assets/images/sprite/symbol/sprite.svg#${this.thermometerIcon(
-        //         newFeels
-        //     )}`
-        // );
-        // feelTemperatureEl.textContent = `${newFeels} \xB0C`;
-        // humidityEl.textContent = `${newHumidity} %`;
-        // windEl.textContent = `${newWind} km/h`;
-        // pressureEl.textContent = `${newPressure} hPa`;
+        const dayNameEl = document.createElement('span');
+        dayNameEl.className = 'temperature-week__day-name';
+        dayNameEl.textContent = `${dayItem.dayName},`;
+
+        const degreesEl = document.createElement('span');
+        degreesEl.className = 'temperature-week__degrees';
+        degreesEl.textContent = `${dayItem.temp} \xB0C`;
+
+        const textEl = document.createElement('span');
+        textEl.className = 'temperature-week__text';
+        textEl.textContent = `${dayItem.text}`;
+
+        const cardEl = document.createElement('div');
+        cardEl.className = 'temperature-week__card';
+        cardEl.append(imgEl);
+        cardEl.append(dayNameEl);
+        cardEl.append(dayEl);
+        cardEl.append(degreesEl);
+        cardEl.append(textEl);
+
+        const liEl = document.createElement('li');
+        liEl.className = 'temperature-week__item';
+        liEl.append(cardEl);
+
+        return liEl;
+    }
+
+    renderWeek(weeekList) {
+        const weekWeatherEl = document.getElementById('temperature-week');
+        weekWeatherEl.textContent = '';
+        weeekList.forEach((day) => {
+            weekWeatherEl.append(this.createListEl(day));
+        });
     }
 }

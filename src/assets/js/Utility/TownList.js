@@ -1,11 +1,14 @@
 import { Town } from './Town';
 
 export class TownList {
-    towns = [];
-    selectedTown = 0;
     constructor() {
+        this.towns = [];
         this.towns.push(new Town('Vladimir', 56.1366, 40.3966));
         this.selectedTown = 0;
+    }
+
+    getSelectedTown() {
+        return this.towns[this.selectedTown];
     }
 
     addNewTownAndSelect(newTown) {

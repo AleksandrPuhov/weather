@@ -7,7 +7,7 @@ block content
 	.weather
 		.weather-inner
 			header.header#header
-				ul.header-bg
+				ul.header-bg#header-bg
 					li.header-bg-up
 						include ../assets/images/spline/bg-up.svg  
 					li.header-bg-down-1
@@ -20,11 +20,6 @@ block content
 						include ../assets/images/spline/bg-down-4.svg  
 				.weather-wrapper
 					.header-inner#town-weather
-						nav.header-nav
-							.header-nav-burger
-								+icon("menu","header-nav-burger-icon")
-							.header-nav-search
-								+icon("loupe","header-nav-search-icon")
 						.header-info
 							.header-info-text
 								h2.header-info-text-town
@@ -67,48 +62,6 @@ block content
 									p.temperature-today__text-caption Pressure
 									p.temperature-today__text-info.temperature-today__pressure
 					ul.temperature-week#temperature-week
-						li.temperature-week__item
-							.temperature-week__card 
-								.temperature-week__img
-									+iconsWeather('temperature-week__img-icon','drizzle')
-								span.temperature-week__day Fri
-								span.temperature-week__degrees 22/26C
-								span.temperature-week__text Sunda dasdf sdf dadaasdad asdaddad
-						li.temperature-week__item
-							.temperature-week__card 
-								.temperature-week__img
-									+iconsWeather('temperature-week__img-icon','drizzle')
-								span.temperature-week__day Fri
-								span.temperature-week__degrees 22/26C
-								span.temperature-week__text Sunda dasdf sdf dadaasdad asdaddad
-						//- li.temperature-week__item
-						//- 	.temperature-week__card 
-						//- 		.temperature-week__img
-						//- 			+iconsWeather('temperature-week__img-icon','drizzle')
-						//- 		span.temperature-week__day Fri
-						//- 		span.temperature-week__degrees 22/26C
-						//- 		span.temperature-week__text Sunda dasdf sdf dadaasdad asdaddad
-						//- li.temperature-week__item
-						//- 	.temperature-week__card 
-						//- 		.temperature-week__img
-						//- 			+iconsWeather('temperature-week__img-icon','drizzle')
-						//- 		span.temperature-week__day Fri
-						//- 		span.temperature-week__degrees 22/26C
-						//- 		span.temperature-week__text Sunda dasdf sdf dadaasdad asdaddad
-						//- li.temperature-week__item
-						//- 	.temperature-week__card 
-						//- 		.temperature-week__img
-						//- 			+iconsWeather('temperature-week__img-icon','drizzle')
-						//- 		span.temperature-week__day Fri
-						//- 		span.temperature-week__degrees 22/26C
-						//- 		span.temperature-week__text Sunda dasdf sdf dadaasdad asdaddad
-						//- li.temperature-week__item
-						//- 	.temperature-week__card 
-						//- 		.temperature-week__img
-						//- 			+iconsWeather('temperature-week__img-icon','drizzle')
-						//- 		span.temperature-week__day Fri
-						//- 		span.temperature-week__degrees 22/26C
-						//- 		span.temperature-week__text Sunda dasdf sdf dadaasdad asdaddad
 		footer.footer
 			.weather-wrapper
 				nav.footer-nav
@@ -121,6 +74,10 @@ block content
 							button.footer-nav-btn#week-btn
 								+icon("week","footer-nav-btn__icon")
 								span.footer-nav-btn__text Weekly 
+						li.footer-nav-list__item
+							button.footer-nav-btn
+								+icon("placeholder","footer-nav-btn__icon")
+								span.footer-nav-btn__text Location 
 						li.footer-nav-list__item
 							button.footer-nav-btn
 								+icon("settings","footer-nav-btn__icon")
