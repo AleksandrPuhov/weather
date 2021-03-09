@@ -7,7 +7,7 @@ export async function getWeatherFromCoords(lat, lon) {
 
     // if (!response.ok) {
     //     console.log(response);
-    //     throw new Error(response.statusText);
+    throw new Error('Data update error. Try again later.');
     // }
 
     // const data = await response.json();

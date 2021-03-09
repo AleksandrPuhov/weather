@@ -2,7 +2,7 @@
     height: 75%;
     position: relative;
     z-index: 0;
-    background-color: #313e5c;
+    background-color: $bgColorHeader;
     transition: $transitionTime;
 
     &--show-week {
@@ -16,6 +16,7 @@
         left: 0;
         height: 100%;
         width: 100%;
+        background-color: #fbb274;
 
         &-up {
             position: absolute;
@@ -25,6 +26,7 @@
             width: 100%;
             svg {
                 width: 100%;
+                fill: #f8a057;
             }
         }
         &-down-1 {
@@ -35,6 +37,7 @@
             width: 100%;
             svg {
                 width: 100%;
+                fill: #a13c22;
             }
         }
         &-down-2 {
@@ -45,6 +48,7 @@
             width: 100%;
             svg {
                 width: 100%;
+                fill: #c94a27;
             }
         }
         &-down-3 {
@@ -55,6 +59,7 @@
             width: 100%;
             svg {
                 width: 100%;
+                fill: #e5612c;
             }
         }
         &-down-4 {
@@ -65,11 +70,18 @@
             width: 100%;
             svg {
                 width: 100%;
+                fill: #ee813e;
             }
         }
     }
     &--show-week &-bg {
         display: none;
+    }
+
+    &-update {
+        width: 100%;
+        position: absolute;
+        z-index: 5;
     }
 
     &-inner {

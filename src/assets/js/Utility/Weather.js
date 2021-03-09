@@ -9,6 +9,7 @@ import { kelvinToCelsius } from './DegreesConversion';
 import { idConvertToIcon, idConvertToColor } from './IdWeather';
 
 import { TownWeather } from '../UI/TownWeather';
+import { Spinner } from '../UI/Spinner';
 
 import { TownList } from './TownList';
 
@@ -16,11 +17,13 @@ export class Weather {
     constructor() {
         this.showWeatherToday = true;
         this.dataWeather = {
-            town: {},
-            weather: {},
+            town: null,
+            weather: null,
         };
         this.myTownWeather = new TownWeather();
         this.myTownList = new TownList();
+
+        this.mySpinner = new Spinner();
 
         this.addListeners();
         this.startRender();
@@ -47,25 +50,29 @@ export class Weather {
 
     async startRender() {
         this.dataWeather.town = this.myTownList.getSelectedTown();
-
-        await this.getWeather(
-            this.dataWeather.town.coords.lat,
-            this.dataWeather.town.coords.lon
-        );
-        this.render();
+        if (this.dataWeather.town) {
+            try {
+                await this.getWeather(
+                    this.dataWeather.town.coords.lat,
+                    this.dataWeather.town.coords.lon
+                );
+                this.render();
+            } catch (error) {
+            } finally {
+            }
+        }
     }
 
     async getWeather(lat, lon) {
-        //        event.preventDefault();
-        //        let dataToday = null;
         try {
-            // modal.show();
+            this.mySpinner.show();
             this.dataWeather.weather = await getWeatherFromCoords(lat, lon);
         } catch (error) {
-            console.log(error);
-            // alert('12345');
+            console.log(error.message);
+            // show Error Modal
+            throw new Error(error.message);
         } finally {
-            //        modal.hide();
+            this.mySpinner.hide();
         }
     }
 
