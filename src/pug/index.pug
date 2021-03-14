@@ -5,92 +5,12 @@ block variables
 
 block content
 	.weather
+		.weather-update
+			include ./modules/update
+		.weather-error
+			include ./modules/error
 		.weather-inner
-			header.header#header
-				ul.header-bg#header-bg
-					li.header-bg-up
-						include ../assets/images/spline/bg-up.svg  
-					li.header-bg-down-1
-						include ../assets/images/spline/bg-down-1.svg  
-					li.header-bg-down-2
-						include ../assets/images/spline/bg-down-2.svg  
-					li.header-bg-down-3
-						include ../assets/images/spline/bg-down-3.svg  
-					li.header-bg-down-4
-						include ../assets/images/spline/bg-down-4.svg  
-				.header-update
-					.update#update
-						.update-spinner
-							.update-spinner-chase
-								.update-spinner-chase-dot
-								.update-spinner-chase-dot
-								.update-spinner-chase-dot
-								.update-spinner-chase-dot
-								.update-spinner-chase-dot
-								.update-spinner-chase-dot
-						p.update-text data update
-				.weather-wrapper
-					.header-inner#town-weather
-						.header-info
-							.header-info-text
-								h2.header-info-text-town
-								h4.header-info-text-date
-								h3.header-info-text-weather
-							.header-info-img
-								+iconsWeather('header-info-img-icon','')
-						h1.header-degrees 
-							span.header-degrees__num 
-							span.header-degrees__measure
-			section.temperature#temperature
-				.weather-wrapper 
-					ul.temperature-today#temperature-today
-						li.temperature-today__item
-							figure.temperature-today__card 
-								.temperature-today__img
-									+iconsWeather('temperature-today__img-thermometer','thermometer-25')
-								figcaption.temperature-today__text
-									p.temperature-today__text-caption Feels like
-									p.temperature-today__text-info.temperature-today__degrees
-						li.temperature-today__item
-							figure.temperature-today__card 
-								.temperature-today__img
-									+icon("drops","temperature-today__img-icon")
-								figcaption.temperature-today__text
-									p.temperature-today__text-caption Humidity
-									p.temperature-today__text-info.temperature-today__humidity
-						li.temperature-today__item
-							figure.temperature-today__card 
-								.temperature-today__img
-									+icon("wind","temperature-today__img-icon")
-								figcaption.temperature-today__text
-									p.temperature-today__text-caption Wind
-									p.temperature-today__text-info.temperature-today__wind
-						li.temperature-today__item
-							figure.temperature-today__card 
-								.temperature-today__img
-									+icon("barometer","temperature-today__img-icon")
-								figcaption.temperature-today__text
-									p.temperature-today__text-caption Pressure
-									p.temperature-today__text-info.temperature-today__pressure
-					ul.temperature-week#temperature-week
-		footer.footer
-			.weather-wrapper
-				nav.footer-nav
-					ul.footer-nav-list
-						li.footer-nav-list__item
-							button.footer-nav-btn#today-btn
-								+icon("day","footer-nav-btn__icon")
-								span.footer-nav-btn__text Today 
-						li.footer-nav-list__item
-							button.footer-nav-btn#week-btn
-								+icon("week","footer-nav-btn__icon")
-								span.footer-nav-btn__text Weekly 
-						li.footer-nav-list__item
-							button.footer-nav-btn
-								+icon("placeholder","footer-nav-btn__icon")
-								span.footer-nav-btn__text Location 
-						li.footer-nav-list__item
-							button.footer-nav-btn
-								+icon("settings","footer-nav-btn__icon")
-								span.footer-nav-btn__text Settings 
+			include ./modules/header
+			include ./modules/temperature
+		include ./modules/footer
 

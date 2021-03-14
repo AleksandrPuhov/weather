@@ -36,11 +36,11 @@
             }
             &:hover &__icon,
             &:active &__icon {
-                fill: $bgBtnActiveColor;
+                fill: $bgBtnFooterActiveColor;
             }
             &:hover &__text,
             &:active &__text {
-                color: $bgBtnActiveColor;
+                color: $bgBtnFooterActiveColor;
             }
         }
     }

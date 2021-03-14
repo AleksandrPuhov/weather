@@ -1,6 +1,6 @@
-@import './common/update';
-
-@import './sections/weather';
-@import './sections/header';
-@import './sections/temperature';
-@import './sections/footer';
+@import './modules/update';
+@import './modules/error';
+@import './modules/weather';
+@import './modules/header';
+@import './modules/temperature';
+@import './modules/footer';

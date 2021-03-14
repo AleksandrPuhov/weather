@@ -1,0 +1,32 @@
+section.temperature#temperature
+	.weather-wrapper 
+		ul.temperature-today#temperature-today
+			li.temperature-today__item
+				figure.temperature-today__card 
+					.temperature-today__img
+						+iconsWeather('temperature-today__img-thermometer','thermometer-25')
+					figcaption.temperature-today__text
+						p.temperature-today__text-caption Feels like
+						p.temperature-today__text-info.temperature-today__degrees 0 &degC
+			li.temperature-today__item
+				figure.temperature-today__card
+					.temperature-today__img
+						+icon("drops","temperature-today__img-icon")
+					figcaption.temperature-today__text
+						p.temperature-today__text-caption Humidity
+						p.temperature-today__text-info.temperature-today__humidity 0 %
+			li.temperature-today__item
+				figure.temperature-today__card 
+					.temperature-today__img
+						+icon("wind","temperature-today__img-icon")
+					figcaption.temperature-today__text
+						p.temperature-today__text-caption Wind
+						p.temperature-today__text-info.temperature-today__wind 0 km/h
+			li.temperature-today__item
+				figure.temperature-today__card 
+					.temperature-today__img
+						+icon("barometer","temperature-today__img-icon")
+					figcaption.temperature-today__text
+						p.temperature-today__text-caption Pressure
+						p.temperature-today__text-info.temperature-today__pressure 0 hPa
+		ul.temperature-week#temperature-week

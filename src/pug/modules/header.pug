@@ -1,0 +1,24 @@
+header.header#header
+	ul.header-bg#header-bg
+		li.header-bg-up
+			include ../../assets/images/spline/bg-up.svg  
+		li.header-bg-down-1
+			include ../../assets/images/spline/bg-down-1.svg  
+		li.header-bg-down-2
+			include ../../assets/images/spline/bg-down-2.svg  
+		li.header-bg-down-3
+			include ../../assets/images/spline/bg-down-3.svg  
+		li.header-bg-down-4
+			include ../../assets/images/spline/bg-down-4.svg  
+	.weather-wrapper
+		.header-inner#town-weather
+			.header-info
+				.header-info-text
+					h2.header-info-text-town Town
+					h4.header-info-text-date Mon January 1
+					h3.header-info-text-weather Sun
+				.header-info-img
+					+iconsWeather('header-info-img-icon','sun')
+			h1.header-degrees 
+				span.header-degrees__num 0
+				span.header-degrees__measure &degC

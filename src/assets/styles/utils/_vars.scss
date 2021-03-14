@@ -1,35 +1,37 @@
 $transitionTime: 0.3s;
 
-$bgColorHeader: #313e5c;
+// text
 $textColorHeader: #ffffff;
-
 $textColor: #595656;
-
-$bgColorTemperature: #ffffff;
-
-$bgColorFooter: #e7e7e8;
-$bgBtnActiveColor: #537dbf;
-
-// $colorMain: #00dbd0;
-// $colorMainSecond: #f1fefe;
-
-// $colorMainAlpha: rgba(
-//     $color: $colorMain,
-//     $alpha: 0.25,
-// );
-
 $textColorMainAlpha: rgba(
     $color: $textColor,
     $alpha: 0.2,
 );
 
-// $textColorSecond: #ffffff;
-// $sectionBgColor: #fbfefe;
+// modal
+$modalBgColor: #313e5c;
+$modalColorAlpha: rgba(
+    $color: $modalBgColor,
+    $alpha: 0.9,
+);
+$modalBgButtonColor: #17284a;
+$modalBgButtonColorHover: #475471;
+$modalShadow: 0px 3px 12px 3px rgba(0, 0, 0, 0.2);
 
-// $bodyGradient: linear-gradient(180deg, $colorMainSecond, $textColorSecond);
+// header color
+$headerBgColor-bg: #fbb274;
+$headerBgColor-up: #f8a057;
+$headerBgColor-down1: #a13c22;
+$headerBgColor-down2: #c94a27;
+$headerBgColor-down3: #e5612c;
+$headerBgColor-down4: #ee813e;
 
-// $headerShadow: 0px -1px 6px 5px rgba(0, 0, 0, 0.2);
-// $navShadow: 1px 0px 6px 5px rgba(0, 0, 0, 0.2);
+// temperature
+$bgColorTemperature: #ffffff;
+
+// footer
+$bgColorFooter: #e7e7e8;
+$bgBtnFooterActiveColor: #537dbf;
 
 // $phoneSize: 400px;
 // $phabletSize: 560px;

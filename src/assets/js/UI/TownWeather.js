@@ -2,6 +2,7 @@ export class TownWeather {
     constructor() {}
 
     changeColor(color) {
+        const headerEl = document.getElementById('header');
         const headerBgEl = document.getElementById('header-bg');
         const upEl = headerBgEl.querySelector('.header-bg-up svg path');
         const down1 = headerBgEl.querySelectorAll('.header-bg-down-1 svg path');
@@ -9,18 +10,24 @@ export class TownWeather {
         const down3 = headerBgEl.querySelectorAll('.header-bg-down-3 svg path');
         const down4 = headerBgEl.querySelectorAll('.header-bg-down-4 svg path');
 
+        headerEl.style.backgroundColor = color.up;
+
         headerBgEl.style.backgroundColor = color.bgc;
+
         upEl.setAttribute('fill', color.up);
 
         down1.forEach((path) => {
             path.setAttribute('fill', color.down1);
         });
+
         down2.forEach((path) => {
             path.setAttribute('fill', color.down2);
         });
+
         down3.forEach((path) => {
             path.setAttribute('fill', color.down3);
         });
+
         down4.forEach((path) => {
             path.setAttribute('fill', color.down4);
         });
