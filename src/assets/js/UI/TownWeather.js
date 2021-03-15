@@ -1,3 +1,10 @@
+import {
+    timeConverterToday,
+    timeConverterDayName,
+    timeConverterDay,
+} from '../Utility/TimeConverter';
+import { kelvinToCelsius } from '../Utility/DegreesConversion';
+import { idConvertToIcon, idConvertToColor } from '../Utility/IdWeather';
 export class TownWeather {
     constructor() {}
 
@@ -173,5 +180,44 @@ export class TownWeather {
         weeekList.forEach((day) => {
             weekWeatherEl.append(this.createListEl(day));
         });
+    }
+
+    render(town, weather) {
+        this.renderHeader(
+            town.name,
+            timeConverterToday(weather.current.dt),
+            weather.current.weather[0].description,
+            idConvertToIcon(
+                weather.current.weather[0].id,
+                weather.current.weather[0].icon
+            ),
+            kelvinToCelsius(weather.current.temp),
+            idConvertToColor(
+                weather.current.weather[0].id,
+                weather.current.weather[0].icon
+            )
+        );
+
+        this.renderOneDay(
+            kelvinToCelsius(weather.current.feels_like),
+            weather.current.wind_speed,
+            weather.current.humidity,
+            weather.current.pressure
+        );
+
+        const weeekList = weather.daily.map((dayWeather) => {
+            return {
+                icon: idConvertToIcon(
+                    dayWeather.weather[0].id,
+                    dayWeather.weather[0].icon,
+                    true
+                ),
+                day: timeConverterDay(dayWeather.dt),
+                dayName: timeConverterDayName(dayWeather.dt),
+                temp: kelvinToCelsius(dayWeather.temp.day),
+                text: dayWeather.weather[0].description,
+            };
+        });
+        this.renderWeek(weeekList);
     }
 }

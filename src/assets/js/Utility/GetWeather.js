@@ -7,7 +7,7 @@ export async function getWeatherFromCoords(lat, lon) {
 
     // if (!response.ok) {
     //     console.log(response);
-    throw new Error('Connection error. Try again later.');
+    //throw new Error('Connection error. Try again later.');
     // }
 
     // const data = await response.json();
