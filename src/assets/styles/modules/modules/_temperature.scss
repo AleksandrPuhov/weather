@@ -5,7 +5,7 @@
     transition: $transitionTime;
 
     &--show-week {
-        height: calc(100% - 230px);
+        height: $showWeekHeight;
     }
 
     &-today {

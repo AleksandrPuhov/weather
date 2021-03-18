@@ -1,5 +1,13 @@
 $transitionTime: 0.3s;
 
+//position
+$footerHeight: 68px;
+$weathereInnerHeight: calc(100% - #{$footerHeight});
+$weathereheaderInfo: 230px;
+$showWeekHeight: calc(100% - #{$weathereheaderInfo});
+$townsTopPosition: 150px;
+$townsHeight: calc(100% - #{$footerHeight} - #{$townsTopPosition});
+
 // text
 $textColorHeader: #ffffff;
 $textColor: #595656;
@@ -17,6 +25,7 @@ $modalColorAlpha: rgba(
 $modalBgButtonColor: #17284a;
 $modalBgButtonColorHover: #475471;
 $modalShadow: 0px 3px 12px 3px rgba(0, 0, 0, 0.2);
+$modalColor: #fafafa;
 
 // header color
 $headerBgColor-bg: #fbb274;

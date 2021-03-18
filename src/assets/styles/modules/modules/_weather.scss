@@ -10,14 +10,8 @@
         height: 100%;
     }
     &-inner {
-        height: calc(100% - 68px);
+        height: $weathereInnerHeight;
         position: relative;
         z-index: 1;
-    }
-
-    &-update {
-        width: 100%;
-        position: absolute;
-        z-index: 3;
     }
 }
