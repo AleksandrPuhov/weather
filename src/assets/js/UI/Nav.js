@@ -3,20 +3,54 @@ export class Nav {
         this.addListeners();
     }
 
+    setTownsListFunction(setTownsHide, setTownsToggle) {
+        this.townsToggle = setTownsToggle;
+        this.townsHide = setTownsHide;
+    }
+
     addListeners() {
-        const headerEl = document.getElementById('header');
-        const temperatureEl = document.getElementById('temperature');
-        const todayBtnEl = document.getElementById('today-btn');
-        const weekBtnEl = document.getElementById('week-btn');
+        const navListEl = document.getElementById('nav-list');
 
-        todayBtnEl.addEventListener('click', () => {
-            headerEl.classList.remove('header--show-week');
-            temperatureEl.classList.remove('temperature--show-week');
-        });
-
-        weekBtnEl.addEventListener('click', () => {
-            headerEl.classList.add('header--show-week');
-            temperatureEl.classList.add('temperature--show-week');
+        navListEl.addEventListener('click', (event) => {
+            this.navListHandler(event);
         });
     }
+
+    navListHandler(event) {
+        const todayBtnEl = document.getElementById('today-btn');
+        const weekBtnEl = document.getElementById('week-btn');
+        const locatonBtnEl = document.getElementById('locaton-btn');
+
+        const headerEl = document.getElementById('header');
+        const temperatureEl = document.getElementById('temperature');
+
+        if (event.target.closest('button') === locatonBtnEl) {
+            this.townsToggle();
+        }
+        if (
+            event.target.closest('button') === todayBtnEl ||
+            event.target.closest('button') === weekBtnEl
+        ) {
+            this.townsHide();
+
+            if (event.target.closest('button') === todayBtnEl) {
+                headerEl.classList.remove('header--show-week');
+                temperatureEl.classList.remove('temperature--show-week');
+            }
+            if (event.target.closest('button') === weekBtnEl) {
+                headerEl.classList.add('header--show-week');
+                temperatureEl.classList.add('temperature--show-week');
+            }
+        }
+    }
+
+    // townsHide() {
+    //     const townsEl = document.getElementById('towns');
+    //     townsEl.classList.remove('towns--show');
+    // }
+
+    // townsToggle() {
+    //     const townsEl = document.getElementById('towns');
+    //     townsEl.classList.toggle('towns--show');
+    // }
 }

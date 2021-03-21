@@ -1,12 +1,16 @@
 $transitionTime: 0.3s;
+$transitionModalTime: 0.2s;
 
 //position
 $footerHeight: 68px;
 $weathereInnerHeight: calc(100% - #{$footerHeight});
 $weathereheaderInfo: 230px;
 $showWeekHeight: calc(100% - #{$weathereheaderInfo});
+
 $townsTopPosition: 150px;
+
 $townsHeight: calc(100% - #{$footerHeight} - #{$townsTopPosition});
+$townsListHeight: calc(100% - 37px - 10px);
 
 // text
 $textColorHeader: #ffffff;

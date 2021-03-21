@@ -2,14 +2,17 @@
     position: absolute;
     z-index: 5;
     width: 100%;
-    top: $townsTopPosition;
-    height: $townsHeight;
     background-color: $modalColorAlpha;
     border-radius: 40px 40px 0 0;
     padding: 25px 0 10px;
 
+    bottom: 0;
+    height: 0;
+
+    transition: $transitionModalTime;
+
     &-find {
-        display: flex;
+        display: none;
         &__input {
             font-size: 14px;
             width: 100%;
@@ -47,10 +50,35 @@
     &-list {
         display: flex;
         flex-wrap: wrap;
-        margin: 0 -10px;
+        margin: 10px -10px 0;
+        align-content: flex-start;
+
+        height: $townsListHeight;
+        overflow-y: scroll;
+
+        scrollbar-width: thin;
+        scrollbar-color: $bgColorFooter transparent;
+
+        &::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: $bgColorFooter;
+            border-radius: 4px;
+        }
+        &::-webkit-scrollbar-thumb:hover {
+            background: $bgColorFooter;
+        }
+        &::-webkit-scrollbar-track {
+            background: transparent;
+            border-radius: 4px;
+        }
+
         &__item {
             padding: 10px;
             flex-basis: 50%;
+            height: 160px;
         }
     }
     &-card {
@@ -59,20 +87,28 @@
         padding: 10px;
         position: relative;
         z-index: 1;
-        // border: 1px solid $modalBgButtonColor;
         border-radius: 10px;
         background-color: $modalBgButtonColor;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
         &__delete {
-            font-size: 20px;
             position: absolute;
             top: 5px;
             right: 5px;
             z-index: 2;
             display: block;
-            margin: 0 0 0 auto;
             background-color: transparent;
             border: none;
-            color: $modalColor;
+
+            &-icon {
+                width: 15px;
+                height: 15px;
+                fill: $modalColor;
+            }
         }
         &__name {
             @include fontLight;
@@ -80,10 +116,19 @@
         }
         &__temperature {
             font-size: 20px;
+            margin: 10px 0 5px;
         }
         &__text {
             @include fontSemiBold;
             font-size: 14px;
         }
+    }
+
+    &--show {
+        bottom: $footerHeight;
+        height: $townsHeight;
+    }
+    &--show &-find {
+        display: flex;
     }
 }

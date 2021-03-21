@@ -21,7 +21,7 @@
         border-radius: 15px;
 
         transform: scale(0);
-        transition: 0.2s;
+        transition: $transitionModalTime;
 
         &__text {
             color: $textColorHeader;

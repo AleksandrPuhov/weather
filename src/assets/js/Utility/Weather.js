@@ -4,6 +4,7 @@ import { TownWeather } from '../UI/TownWeather';
 import { Spinner } from '../UI/Spinner';
 import { ErrorModal } from '../UI/ErrorModal';
 import { Nav } from '../UI/Nav';
+import { TownsModal } from '../UI/TownsModal';
 
 import { TownList } from './TownList';
 
@@ -19,6 +20,14 @@ export class Weather {
         this.myErrorModal = new ErrorModal();
         this.mySpinner = new Spinner();
         this.myNav = new Nav();
+
+        this.myTownsModal = new TownsModal();
+        this.myNav.setTownsListFunction(
+            this.myTownsModal.townsHide.bind(this.myTownsModal),
+            this.myTownsModal.townsToggle.bind(this.myTownsModal)
+        );
+        // this.myTownsModal.townsHide()
+        // this.myTownsModal.townsToggle()
 
         this.startRender();
     }
