@@ -43,14 +43,4 @@ export class Nav {
             }
         }
     }
-
-    // townsHide() {
-    //     const townsEl = document.getElementById('towns');
-    //     townsEl.classList.remove('towns--show');
-    // }
-
-    // townsToggle() {
-    //     const townsEl = document.getElementById('towns');
-    //     townsEl.classList.toggle('towns--show');
-    // }
 }

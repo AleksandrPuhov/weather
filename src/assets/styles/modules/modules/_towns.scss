@@ -121,6 +121,12 @@
         &__text {
             @include fontSemiBold;
             font-size: 14px;
+            text-transform: capitalize;
+        }
+
+        &:hover,
+        &:active {
+            border: 1px solid $modalBgButtonColorHover;
         }
     }
 
