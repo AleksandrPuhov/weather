@@ -1,4 +1,4 @@
-import { getWeatherByCityName } from '../Utility/GetWeather';
+import { getWeatherByCityName, findTownByName } from '../Utility/GetWeather';
 
 import { kelvinToCelsius } from '../Utility/DegreesConversion';
 
@@ -7,10 +7,36 @@ export class TownsModal {
         this.townsEl = document.getElementById('towns');
         this.townsListEl = document.getElementById('towns-list');
         this.townsListEl.textContent = '';
+
+        this.searchFormEl = document.getElementById('towns-find');
+
+        this.searchFormEl.addEventListener('submit', (event) => {
+            this.findTown(event);
+        });
     }
 
-    setTownsModalFunction(setDeleteTownFromList) {
+    setTownsModalFunction(
+        setDeleteTownFromList,
+        setSelectNewTown,
+        setRenderFindTowns,
+        setErrorModalShow
+    ) {
         this.deleteTownFromList = setDeleteTownFromList;
+        this.selectNewTown = setSelectNewTown;
+        this.renderFindTowns = setRenderFindTowns;
+        this.errorModalShow = setErrorModalShow;
+    }
+
+    async findTown(event) {
+        event.preventDefault();
+        const name = event.target.querySelector('input').value;
+
+        try {
+            const townsList = await findTownByName(name);
+            this.renderFindTowns(townsList);
+        } catch (error) {
+            this.errorModalShow(error.message);
+        }
     }
 
     async addTownToList(town) {
@@ -38,13 +64,13 @@ export class TownsModal {
     }
 
     clickCardHandler(event) {
+        const townName = event.target
+            .closest('li')
+            .querySelector('.towns-card__name').textContent;
         if (event.target.closest('button')) {
-            this.deleteTownFromList(
-                event.target.closest('li').querySelector('.towns-card__name')
-                    .textContent
-            );
+            this.deleteTownFromList(townName);
         } else {
-            console.log(event.target.closest('li'));
+            this.selectNewTown(townName);
         }
     }
 

@@ -4,9 +4,16 @@ export class TownList {
         this.selectedTown = 0;
     }
 
-    setTownsModalFunction(setAddTownToList, selDeleteTownElByName) {
+    setTownsModalFunction(
+        setAddTownToList,
+        selDeleteTownElByName,
+        setRenderSelectedTown,
+        setTownsHide
+    ) {
         this.addTownToList = setAddTownToList;
         this.deleteTownElByName = selDeleteTownElByName;
+        this.renderSelectedTown = setRenderSelectedTown;
+        this.townsHide = setTownsHide;
     }
 
     addNewTown(newTown) {
@@ -25,16 +32,23 @@ export class TownList {
 
             if (this.selectedTown === ind) {
                 this.selectedTown = this.towns.length === 0 ? -1 : 0;
+                this.renderSelectedTown();
             }
             if (this.selectedTown > ind) this.selectedTown--;
-
-            console.log(this);
-
             this.deleteTownElByName(townName);
         }
     }
 
     getSelectedTown() {
         return this.towns[this.selectedTown];
+    }
+
+    selectNewTown(name) {
+        const ind = this.towns.findIndex((el) => el.name === name);
+        if (ind >= 0 && this.selectedTown !== ind) {
+            this.selectedTown = ind;
+            this.renderSelectedTown();
+        }
+        this.townsHide();
     }
 }

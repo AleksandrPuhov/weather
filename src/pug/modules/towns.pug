@@ -1,11 +1,9 @@
 .towns#towns
     .weather-wrapper
-        form.towns-find(action="") 
+        form.towns-find#towns-find 
             input.towns-find__input(type="text" placeholder="New Town")
-            button.towns-find__btn
+            button.towns-find__btn(type="submit")
                 +icon("search","towns-find__btn-icon")
-            button.towns-find__btn
-                +icon("home","towns-find__btn-icon")
         ul.towns-list#towns-list
             li.towns-list__item
                 .towns-card

@@ -5,6 +5,7 @@ import { Spinner } from '../UI/Spinner';
 import { ErrorModal } from '../UI/ErrorModal';
 import { Nav } from '../UI/Nav';
 import { TownsModal } from '../UI/TownsModal';
+import { FindTown } from '../UI/FindTown';
 
 import { TownList } from './TownList';
 import { Town } from './Town';
@@ -23,10 +24,13 @@ export class Weather {
 
         this.myTownList = new TownList();
         this.myTownsModal = new TownsModal();
+        this.myFindTown = new FindTown();
 
         this.myTownList.setTownsModalFunction(
             this.myTownsModal.addTownToList.bind(this.myTownsModal),
-            this.myTownsModal.deleteTownElByName.bind(this.myTownsModal)
+            this.myTownsModal.deleteTownElByName.bind(this.myTownsModal),
+            this.renderSelectedTown.bind(this),
+            this.myTownsModal.townsHide.bind(this.myTownsModal)
         );
 
         this.myNav.setTownsListFunction(
@@ -35,17 +39,20 @@ export class Weather {
         );
 
         this.myTownsModal.setTownsModalFunction(
-            this.myTownList.deleteTownFromList.bind(this.myTownList)
+            this.myTownList.deleteTownFromList.bind(this.myTownList),
+            this.myTownList.selectNewTown.bind(this.myTownList),
+            this.myFindTown.renderFindTowns.bind(this.myFindTown),
+            this.myErrorModal.show.bind(this.myErrorModal)
         );
 
         this.myTownList.addNewTown(new Town('Vladimir', 56.1366, 40.3966));
         this.myTownList.addNewTown(new Town('Vladimir2', 56.1366, 40.3966));
         this.myTownList.addNewTown(new Town('Vladimir3', 56.1366, 40.3966));
 
-        this.startRender();
+        this.renderSelectedTown();
     }
 
-    async startRender() {
+    async renderSelectedTown() {
         this.dataWeather.town = this.myTownList.getSelectedTown();
         if (this.dataWeather.town) {
             try {
