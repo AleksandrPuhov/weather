@@ -1,7 +1,6 @@
 import { getWeatherByCityName, findTownByName } from '../Utility/GetWeather';
 
 import { kelvinToCelsius } from '../Utility/DegreesConversion';
-
 export class TownsModal {
     constructor() {
         this.townsEl = document.getElementById('towns');
@@ -32,8 +31,8 @@ export class TownsModal {
         const name = event.target.querySelector('input').value;
 
         try {
-            const townsList = await findTownByName(name);
-            this.renderFindTowns(townsList);
+            const townsListFound = await findTownByName(name);
+            this.renderFindTowns(townsListFound);
         } catch (error) {
             this.errorModalShow(error.message);
         }

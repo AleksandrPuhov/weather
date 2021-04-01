@@ -45,9 +45,22 @@ export class Weather {
             this.myErrorModal.show.bind(this.myErrorModal)
         );
 
-        this.myTownList.addNewTown(new Town('Vladimir', 56.1366, 40.3966));
-        this.myTownList.addNewTown(new Town('Vladimir2', 56.1366, 40.3966));
-        this.myTownList.addNewTown(new Town('Vladimir3', 56.1366, 40.3966));
+        this.myFindTown.setFindTownFunction(
+            this.myTownList.addNewTown.bind(this.myTownList)
+        );
+
+        this.myTownList.addNewTown(
+            new Town('Vladimir', 56.1366, 40.3966),
+            false
+        );
+        this.myTownList.addNewTown(
+            new Town('Vladimir2', 56.1366, 40.3966),
+            false
+        );
+        this.myTownList.addNewTown(
+            new Town('Vladimir3', 56.1366, 40.3966),
+            false
+        );
 
         this.renderSelectedTown();
     }

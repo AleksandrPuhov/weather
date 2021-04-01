@@ -16,12 +16,17 @@ export class TownList {
         this.townsHide = setTownsHide;
     }
 
-    addNewTown(newTown) {
+    addNewTown(newTown, renderTown = true) {
         const check = this.towns.some((el) => el.name === newTown.name);
         if (!check) {
             this.towns.push(newTown);
             this.selectedTown = this.towns.length - 1;
             this.addTownToList(newTown);
+
+            if (renderTown) {
+                this.renderSelectedTown();
+                this.townsHide();
+            }
         }
     }
 
