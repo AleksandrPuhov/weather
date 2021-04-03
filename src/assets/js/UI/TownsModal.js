@@ -30,11 +30,13 @@ export class TownsModal {
         event.preventDefault();
         const name = event.target.querySelector('input').value;
 
-        try {
-            const townsListFound = await findTownByName(name);
-            this.renderFindTowns(townsListFound);
-        } catch (error) {
-            this.errorModalShow(error.message);
+        if (!!name) {
+            try {
+                const townsListFound = await findTownByName(name);
+                this.renderFindTowns(townsListFound);
+            } catch (error) {
+                this.errorModalShow(error.message);
+            }
         }
     }
 

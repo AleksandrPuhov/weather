@@ -10,11 +10,11 @@
     "author": "Aleksandr Puhov",
     "license": "ISC",
     "devDependencies": {
-        "@babel/core": "^7.12.16",
-        "@babel/plugin-proposal-class-properties": "^7.12.13",
-        "@babel/plugin-transform-runtime": "^7.12.15",
-        "@babel/preset-env": "^7.12.16",
-        "autoprefixer": "^10.2.4",
+        "@babel/core": "^7.13.14",
+        "@babel/plugin-proposal-class-properties": "^7.13.0",
+        "@babel/plugin-transform-runtime": "^7.13.10",
+        "@babel/preset-env": "^7.13.12",
+        "autoprefixer": "^10.2.5",
         "babel-loader": "^8.2.2",
         "browser-sync": "^2.26.14",
         "cssnano": "^4.1.10",
@@ -28,12 +28,12 @@
         "gulp-sourcemaps": "^3.0.0",
         "gulp-svg-sprite": "^1.5.0",
         "node-sass": "^5.0.0",
-        "postcss": "^8.2.6",
+        "postcss": "^8.2.9",
         "webpack-stream": "^6.1.2",
         "yargs": "^16.2.0"
     },
     "dependencies": {
-        "@babel/runtime": "^7.12.13",
+        "@babel/runtime": "^7.13.10",
         "normalize.css": "^8.0.1"
     }
 }

@@ -50,17 +50,14 @@ export class Weather {
         );
 
         this.myTownList.addNewTown(
-            new Town('Vladimir', 56.1366, 40.3966),
+            new Town('New York', 40.7143, -74.006),
             false
         );
         this.myTownList.addNewTown(
-            new Town('Vladimir2', 56.1366, 40.3966),
+            new Town('New Delhi', 28.6128, 77.2311),
             false
         );
-        this.myTownList.addNewTown(
-            new Town('Vladimir3', 56.1366, 40.3966),
-            false
-        );
+        this.myTownList.addNewTown(new Town('Moscow', 55.7617, 37.6067), false);
 
         this.renderSelectedTown();
     }

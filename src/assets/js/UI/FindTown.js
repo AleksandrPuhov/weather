@@ -38,16 +38,19 @@ export class FindTown {
         if (event.target === this.findTownsEl) {
             this.findTownsHide();
         } else if (event.target.tagName.toLowerCase() === 'button') {
-            const newTownSelected = this.townsListFound[
-                event.target.dataset.indexValue
-            ];
-            this.addNewTown(
-                new Town(
-                    newTownSelected.name,
-                    newTownSelected.lat,
-                    newTownSelected.lon
-                )
-            );
+            if (this.townsListFound.length > 0) {
+                const newTownSelected = this.townsListFound[
+                    event.target.dataset.indexValue
+                ];
+                this.addNewTown(
+                    new Town(
+                        newTownSelected.name,
+                        newTownSelected.lat,
+                        newTownSelected.lon
+                    )
+                );
+            }
+
             this.findTownsHide();
         }
     }
